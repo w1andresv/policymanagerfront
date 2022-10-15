@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { AppConfigComponent } from './app.config.component';
 
-@NgModule({
+@NgModule( {
     imports: [
         CommonModule,
         FormsModule,
@@ -22,5 +22,6 @@ import { AppConfigComponent } from './app.config.component';
     exports: [
         AppConfigComponent
     ]
-})
-export class AppConfigModule { }
+} )
+export class AppConfigModule {
+}
