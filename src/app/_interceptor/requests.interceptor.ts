@@ -8,25 +8,25 @@ import { AuthenticationService } from '../_services/authentication.service';
 export class RequestsInterceptor implements HttpInterceptor {
 
 
-  constructor( private authenticationService: AuthenticationService ) {
-  }
-
-  intercept( req: HttpRequest<any>, next: HttpHandler ): Observable<HttpEvent<any>> {
-    if ( !req.headers.has( 'Content-Type' ) ) {
-      req = req.clone( { headers: req.headers.set( 'Content-Type', 'application/json' ) } );
+    constructor( private authenticationService: AuthenticationService ) {
     }
-    const token = this.authenticationService.obtenerToken();
-    req = this.agregarToken( req, token );
-    return next.handle( req );
-  }
 
-  private agregarToken( request: HttpRequest<any>, token: string ) {
-    return request.clone( {
-      setHeaders: {
-        'Authorization': `${token}`
-      }
-    } );
-  }
+    intercept( req: HttpRequest<any>, next: HttpHandler ): Observable<HttpEvent<any>> {
+        if ( !req.headers.has( 'Content-Type' ) ) {
+            req = req.clone( { headers: req.headers.set( 'Content-Type', 'application/json' ) } );
+        }
+        const token = this.authenticationService.obtenerToken();
+        req = this.agregarToken( req, token );
+        return next.handle( req );
+    }
+
+    private agregarToken( request: HttpRequest<any>, token: string | null ) {
+        return request.clone( {
+            setHeaders: {
+                'Authorization': `${ token }`
+            }
+        } );
+    }
 
 
 }

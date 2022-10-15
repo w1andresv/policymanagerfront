@@ -19,9 +19,9 @@ interface LayoutState {
     menuHoverActive: boolean;
 }
 
-@Injectable({
+@Injectable( {
     providedIn: 'root',
-})
+} )
 export class LayoutService {
 
     config: AppConfig = {
@@ -43,37 +43,33 @@ export class LayoutService {
     };
 
     private configUpdate = new Subject<AppConfig>();
-
-    private overlayOpen = new Subject<any>();
-
     configUpdate$ = this.configUpdate.asObservable();
-
+    private overlayOpen = new Subject<any>();
     overlayOpen$ = this.overlayOpen.asObservable();
 
     onMenuToggle() {
-        if (this.isOverlay()) {
+        if ( this.isOverlay() ) {
             this.state.overlayMenuActive = !this.state.overlayMenuActive;
-            if (this.state.overlayMenuActive) {
-                this.overlayOpen.next(null);
+            if ( this.state.overlayMenuActive ) {
+                this.overlayOpen.next( null );
             }
         }
 
-        if (this.isDesktop()) {
+        if ( this.isDesktop() ) {
             this.state.staticMenuDesktopInactive = !this.state.staticMenuDesktopInactive;
-        }
-        else {
+        } else {
             this.state.staticMenuMobileActive = !this.state.staticMenuMobileActive;
 
-            if (this.state.staticMenuMobileActive) {
-                this.overlayOpen.next(null);
+            if ( this.state.staticMenuMobileActive ) {
+                this.overlayOpen.next( null );
             }
         }
     }
 
     showProfileSidebar() {
         this.state.profileSidebarVisible = !this.state.profileSidebarVisible;
-        if (this.state.profileSidebarVisible) {
-            this.overlayOpen.next(null);
+        if ( this.state.profileSidebarVisible ) {
+            this.overlayOpen.next( null );
         }
     }
 
@@ -94,7 +90,38 @@ export class LayoutService {
     }
 
     onConfigUpdate() {
-        this.configUpdate.next(this.config);
+        this.configUpdate.next( this.config );
     }
 
+    setTheme() {
+        let theme = localStorage.getItem( 'theme' ) as string;
+        if ( theme ) {
+            localStorage.setItem( 'theme', theme );
+        } else {
+            theme = 'lara-light-blue';
+            localStorage.setItem( 'theme', theme );
+        }
+        const themeLink = <HTMLLinkElement> document.getElementById( 'theme-css' );
+        const newHref = themeLink.getAttribute( 'href' )!.replace( this.config.theme, theme );
+        this.replaceThemeLink( newHref, () => {
+            this.config.theme = theme;
+            this.onConfigUpdate();
+        } );
+    }
+
+    replaceThemeLink( href: string, onComplete: Function ) {
+        const id = 'theme-css';
+        const themeLink = <HTMLLinkElement> document.getElementById( 'theme-css' );
+        const cloneLinkElement = <HTMLLinkElement> themeLink.cloneNode( true );
+        cloneLinkElement.setAttribute( 'href', href );
+        cloneLinkElement.setAttribute( 'id', id + '-clone' );
+
+        themeLink.parentNode!.insertBefore( cloneLinkElement, themeLink.nextSibling );
+
+        cloneLinkElement.addEventListener( 'load', () => {
+            themeLink.remove();
+            cloneLinkElement.setAttribute( 'id', id );
+            onComplete();
+        } );
+    }
 }
