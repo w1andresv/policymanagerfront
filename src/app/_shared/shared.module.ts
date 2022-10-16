@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
+import { TableModule } from 'primeng/table';
 
 const modules = [
     CommonModule,
@@ -15,7 +16,8 @@ const modules = [
     FormsModule,
     PasswordModule,
     RippleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule
 ];
 
 @NgModule( {

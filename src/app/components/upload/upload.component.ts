@@ -15,9 +15,12 @@ export class UploadComponent implements OnInit {
     ngOnInit(): void {
     }
 
+
     myUploader( event: any ) {
         this.file = event.files[ 0 ];
-        this.uploadFile();
+        if ( this.file ) {
+            this.uploadFile();
+        }
     }
 
     uploadFile() {

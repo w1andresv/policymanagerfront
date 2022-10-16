@@ -1,0 +1,26 @@
+<div class="card mb-3">
+    <p-table [value]="users" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
+        <ng-template pTemplate="caption">
+            Header
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+            </tr>
+        </ng-template>
+        <ng-template let-product pTemplate="body">
+            <tr>
+                <td>{{product.code}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.quantity}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            Footer
+        </ng-template>
+    </p-table>
+</div>

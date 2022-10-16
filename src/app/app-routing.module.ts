@@ -17,6 +17,7 @@ import { UploadComponent } from './components/upload/upload.component';
                         loadChildren: () => import('./components/documentation/documentation.module').then( m => m.DocumentationModule )
                     },
                     { path: 'pages', loadChildren: () => import('./components/pages/pages.module').then( m => m.PagesModule ) },
+                    { path: 'users', loadChildren: () => import('./modules/users/users.module').then( m => m.UsersModule ) },
                     { path: 'upload', component: UploadComponent },
                 ],
             },

@@ -8,15 +8,20 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestsInterceptor } from './_interceptor/requests.interceptor';
 import { UploadComponent } from './components/upload/upload.component';
 import { FileUploadModule } from 'primeng/fileupload';
+import { UsersComponent } from './modules/users/users.component';
+import { SharedModule } from './_shared/shared.module';
 
 @NgModule( {
     declarations: [
-        AppComponent, NotfoundComponent, UploadComponent
+        AppComponent,
+        NotfoundComponent,
+        UploadComponent
     ],
     imports: [
         AppRoutingModule,
         AppLayoutModule,
-        FileUploadModule
+        FileUploadModule,
+        SharedModule
     ],
     providers: [
         {
