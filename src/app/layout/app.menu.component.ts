@@ -30,6 +30,11 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-users',
                         routerLink: [ '/user' ]
                     },
+                    {
+                        label: 'Uploads',
+                        icon: 'pi pi-upload',
+                        routerLink: [ '/upload' ]
+                    }
                 ]
             },
             // {

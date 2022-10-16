@@ -6,14 +6,17 @@ import { AppLayoutModule } from './layout/app.layout.module';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestsInterceptor } from './_interceptor/requests.interceptor';
+import { UploadComponent } from './components/upload/upload.component';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule( {
     declarations: [
-        AppComponent, NotfoundComponent
+        AppComponent, NotfoundComponent, UploadComponent
     ],
     imports: [
         AppRoutingModule,
-        AppLayoutModule
+        AppLayoutModule,
+        FileUploadModule
     ],
     providers: [
         {

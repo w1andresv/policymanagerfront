@@ -39,8 +39,7 @@ export class AuthenticationService {
     }
 
     obtenerToken() {
-        const token = localStorage.getItem( 'Authorization' );
-        return token;
+        return localStorage.getItem( 'Authorization' );
     }
 
     obtenerUsuario() {

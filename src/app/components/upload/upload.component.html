@@ -1,0 +1,6 @@
+<div class="card mb-3">
+    Upload data
+    <p-fileUpload name="myfile[]" mode="basic" [customUpload]="true" (uploadHandler)="myUploader($event)"
+                  [auto]="true" chooseIcon="pi pi-cloud-upload"
+                  accept="application/pdf"></p-fileUpload>
+</div>

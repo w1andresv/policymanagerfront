@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AppLayoutComponent } from './layout/app.layout.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { UploadComponent } from './components/upload/upload.component';
 
 @NgModule( {
     imports: [
@@ -16,6 +17,7 @@ import { AuthGuard } from './_guards/auth.guard';
                         loadChildren: () => import('./components/documentation/documentation.module').then( m => m.DocumentationModule )
                     },
                     { path: 'pages', loadChildren: () => import('./components/pages/pages.module').then( m => m.PagesModule ) },
+                    { path: 'upload', component: UploadComponent },
                 ],
             },
             { path: 'auth', loadChildren: () => import('./components/auth/auth.module').then( m => m.AuthModule ) },
