@@ -15,8 +15,12 @@ $gutter: 1rem; //for primeflex grid system
 @import "assets/demo/styles/flags/flags.css";
 @import "assets/demo/styles/badges.scss";
 
-.layout-menu ul a.active-route {
+.active-route {
+    background-color: #e7e9eb;
+    //opacity: 0.3;
 }
-form{
+
+active-menuitem
+form {
     width: 100%;
 }

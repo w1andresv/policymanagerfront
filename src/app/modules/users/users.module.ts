@@ -4,6 +4,8 @@ import { SharedModule } from '../../_shared/shared.module';
 import { UsersComponent } from './users.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { InputMaskModule } from 'primeng/inputmask';
+import { KeyFilterModule } from 'primeng/keyfilter';
 
 
 @NgModule( {
@@ -14,7 +16,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     imports: [
         CommonModule,
         SharedModule,
-        UsersRoutingModule
+        UsersRoutingModule,
+        KeyFilterModule
     ]
 } )
 export class UsersModule {
