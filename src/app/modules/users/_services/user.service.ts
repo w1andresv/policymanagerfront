@@ -13,7 +13,6 @@ export class UserService {
     constructor( private httpClient: HttpClient ) {
 
     }
-
     save( data: UserInterface ) {
         return this.httpClient.post( this.urlServicios, data ).pipe( map( res => res as any ) );
     }
