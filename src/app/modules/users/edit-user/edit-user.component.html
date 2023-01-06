@@ -1,0 +1,106 @@
+<div class="card mb-3 grid-nogutter">
+    <form (ngSubmit)="onSubmit()" *ngIf="formulario" [formGroup]="formulario" class="flex flex-column">
+        <div class="grid formgrid">
+            <div class="col-12 md:col-12 lg:col-12 field">
+                <h6 for="nombre">Nombre *</h6>
+                <input class="w-full" formControlName="name" id="Nombre" pInputText type="text">
+                <div *ngIf="submitted && f['name'].invalid" class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Nombre requerido
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <h6 for="usuario">Usuario *</h6>
+                <input class="w-full" formControlName="username" id="usuario" minlength="10" pInputText
+                       type="text">
+                <div *ngIf="submitted && f['username'].invalid"
+                     class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Usuario requerido
+                </div>
+            </div>
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <h6 for="correo">Correo</h6>
+                <input class="w-full" formControlName="email" id="correo" pInputText
+                       pKeyFilter="email" type="text">
+                <div *ngIf="submitted && f['email'].invalid"
+                     class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Correo requerido
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <h6>Celular</h6>
+                <p-inputMask [style]="{'width':'100%'}" formControlName="celular"
+                             mask="(999) 999-9999" placeholder="(999) 999-9999"></p-inputMask>
+                <div *ngIf="submitted && f['celular'].invalid"
+                     class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Numero de telefono requerido
+                </div>
+            </div>
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <h6>Rol *</h6>
+                <p-dropdown [filter]="true"
+                            [options]="listaRoles"
+                            [style]="{'width':'100%'}" formControlName="rol"
+                            placeholder="Seleccione"></p-dropdown>
+                <div *ngIf="submitted && f['rol'].invalid"
+                     class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Rol requerido
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <h6 for="usuario">Constraseña *</h6>
+                <p-password [style]="{width:'100%'}" [toggleMask]="true" formControlName="password"></p-password>
+                <div *ngIf="submitted && f['password'].invalid"
+                     class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Constraseña requerida
+                </div>
+            </div>
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <h6 for="correo">Confirmar constraseña *</h6>
+                <p-password [style]="{width:'100%'}" [toggleMask]="true" formControlName="passwordConfirm"></p-password>
+                <div *ngIf="submitted && f['passwordConfirm'].invalid"
+                     class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Constraseña requerida
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <div *ngIf="submitted && f['password'].value!==f['passwordConfirm'].value"
+                     class="ui-message ui-messages-error ui-corner-all">
+                    <i class="fa fa-close"></i>
+                    Las contraseñas no coinciden
+                </div>
+            </div>
+        </div>
+        <div *ngIf="user?._id" class="grid">
+            <div class="sm:col-12 md:col-6 lg:col-6 col-6 ">
+                <label class="control-label"></label>
+                <p-checkbox [binary]="true" formControlName="enabled" id="indicador" label="Habilitado"
+                            name="indicador"></p-checkbox>
+            </div>
+        </div>
+        <div class="grid ">
+            <div class="col-12 flex flex-row justify-content-center">
+                <button (click)="atras()" class="p-button-danger" icon="pi pi-arrow-left" label="Atras" pButton
+                        type="button"></button>
+                <button icon="pi pi-save" label="Guardar" pButton style="margin-right: .5em; margin-left: .5em"
+                        type="submit"></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

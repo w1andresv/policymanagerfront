@@ -1,0 +1,122 @@
+<button (click)="onConfigButtonClick()" class="layout-config-button p-link" type="button">
+    <i class="pi pi-cog"></i>
+</button>
+
+<p-sidebar [(visible)]="visible" [transitionOptions]="'.3s cubic-bezier(0, 0, 0.2, 1)'" position="right"
+           styleClass="layout-config-sidebar w-20rem">
+    <h5>Bootstrap</h5>
+    <div class="grid">
+        <div class="col-3">
+            <button (click)="changeTheme('bootstrap4-light-blue', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Bootstrap Light Blue" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/bootstrap4-light-blue.svg">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('bootstrap4-light-purple', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Bootstrap Light Purple" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/bootstrap4-light-purple.svg">
+            </button>
+        </div>
+    </div>
+
+    <h5>Material Design</h5>
+    <div class="grid">
+        <div class="col-3">
+            <button (click)="changeTheme('md-light-indigo', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Material Light Indigo" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/md-light-indigo.svg">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('md-light-deeppurple', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Material Light DeepPurple" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/md-light-deeppurple.svg">
+            </button>
+        </div>
+    </div>
+
+    <h5>Material Design Compact</h5>
+    <div class="grid">
+        <div class="col-3">
+            <button (click)="changeTheme('mdc-light-indigo', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Material Light Indigo" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/md-light-indigo.svg">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('mdc-light-deeppurple', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Material Light Deep Purple" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/md-light-deeppurple.svg">
+            </button>
+        </div>
+    </div>
+
+    <h5>Tailwind</h5>
+    <div class="grid">
+        <div class="col-3">
+            <button (click)="changeTheme('tailwind-light', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Tailwind Light" class="w-2rem h-2rem" src="assets/layout/images/themes/tailwind-light.png">
+            </button>
+        </div>
+    </div>
+
+    <h5>Fluent UI</h5>
+    <div class="grid">
+        <div class="col-3">
+            <button (click)="changeTheme('fluent-light', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Fluent Light" class="w-2rem h-2rem" src="assets/layout/images/themes/fluent-light.png">
+            </button>
+        </div>
+    </div>
+
+    <h5>PrimeOne Design - 2022</h5>
+    <div class="grid">
+        <div class="col-3">
+            <button (click)="changeTheme('lara-light-indigo', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Lara Light Indigo" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/lara-light-indigo.png">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('lara-light-blue', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Lara Light Blue" class="w-2rem h-2rem" src="assets/layout/images/themes/lara-light-blue.png">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('lara-light-purple', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Lara Light Purple" class="w-2rem h-2rem"
+                     src="assets/layout/images/themes/lara-light-purple.png">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('lara-light-teal', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Lara Light Teal" class="w-2rem h-2rem" src="assets/layout/images/themes/lara-light-teal.png">
+            </button>
+        </div>
+    </div>
+
+    <h5>PrimeOne Design - 2021</h5>
+    <div class="grid">
+        <div class="col-3">
+            <button (click)="changeTheme('saga-blue', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Saga Blue" class="w-2rem h-2rem" src="assets/layout/images/themes/saga-blue.png">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('saga-green', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Saga Green" class="w-2rem h-2rem" src="assets/layout/images/themes/saga-green.png">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('saga-orange', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Saga Orange" class="w-2rem h-2rem" src="assets/layout/images/themes/saga-orange.png">
+            </button>
+        </div>
+        <div class="col-3">
+            <button (click)="changeTheme('saga-purple', 'light')" class="p-link w-2rem h-2rem">
+                <img alt="Saga Purple" class="w-2rem h-2rem" src="assets/layout/images/themes/saga-purple.png">
+            </button>
+        </div>
+    </div>
+</p-sidebar>
