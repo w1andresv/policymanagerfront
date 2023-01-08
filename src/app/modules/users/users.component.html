@@ -1,26 +1,33 @@
 <div class="card mb-3">
-    <p-table [value]="users" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
-        <ng-template pTemplate="caption">
-            Header
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Quantity</th>
-            </tr>
-        </ng-template>
-        <ng-template let-product pTemplate="body">
-            <tr>
-                <td>{{product.code}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.category}}</td>
-                <td>{{product.quantity}}</td>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="summary">
-            Footer
-        </ng-template>
-    </p-table>
+  <p-table [value]="users" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="caption">
+      Usuarios
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="p-text-center">Nombre</th>
+        <th class="p-text-center">Usuario</th>
+        <th class="p-text-center">Rol</th>
+        <th class="p-text-center">Estado</th>
+        <th class="p-text-center">Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template let-item pTemplate="body">
+      <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.username}}</td>
+        <td class="p-text-center">{{item.rol}}</td>
+        <td class="p-text-center">
+          <p-inputSwitch [(ngModel)]="item.enabled"></p-inputSwitch>
+        </td>
+        <td class="p-text-center">
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button mr-2" (click)="edit(item)"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="delete(item)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      Footer
+    </ng-template>
+  </p-table>
 </div>

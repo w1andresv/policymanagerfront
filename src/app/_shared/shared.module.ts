@@ -10,6 +10,7 @@ import { TableModule } from 'primeng/table';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileUploadModule } from 'primeng/fileupload';
+import {  InputSwitchModule } from 'primeng/inputswitch';
 
 const modules = [
   CommonModule,
@@ -23,7 +24,8 @@ const modules = [
   TableModule,
   InputMaskModule,
   DropdownModule,
-  FileUploadModule
+  FileUploadModule,
+  InputSwitchModule
 ];
 
 @NgModule( {
