@@ -21,6 +21,9 @@ export class UserService {
   save( data: UserInterface ) {
     return this.httpClient.post( this.urlServicios, data ).pipe( map( res => res as any ) );
   }
+  update( data: UserInterface ) {
+    return this.httpClient.put( this.urlServicios, data ).pipe( map( res => res as any ) );
+  }
   
   setTheme( data: any ) {
     return this.httpClient.post( this.urlServicios, data ).pipe( map( res => res as any ) );

@@ -1,7 +1,10 @@
 <div class="card mb-3">
   <p-table [value]="users" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
     <ng-template pTemplate="caption">
-      Usuarios
+      <div class="flex flex-row justify-content-between w-full align-items-center">
+        <h5 class="m-0">Usuarios</h5>
+        <button (click)="new()" class="p-button mr-2" icon="pi pi-plus" label="New" pButton pRipple></button>
+      </div>
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
@@ -18,11 +21,13 @@
         <td>{{item.username}}</td>
         <td class="p-text-center">{{item.rol}}</td>
         <td class="p-text-center">
-          <p-inputSwitch [(ngModel)]="item.enabled"></p-inputSwitch>
+          <p-inputSwitch [(ngModel)]="item.enabled" (onChange)="changeStatus(item)"></p-inputSwitch>
         </td>
         <td class="p-text-center">
-          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button mr-2" (click)="edit(item)"></button>
-          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="delete(item)"></button>
+          <button (click)="edit(item)" class="p-button-rounded p-button mr-2" icon="pi pi-pencil" pButton
+                  pRipple></button>
+<!--          <button (click)="delete(item)" class="p-button-rounded p-button-danger" icon="pi pi-trash" pButton-->
+<!--                  pRipple></button>-->
         </td>
       </tr>
     </ng-template>

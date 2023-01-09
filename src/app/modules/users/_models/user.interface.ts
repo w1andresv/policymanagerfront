@@ -10,4 +10,5 @@ export interface UserInterface {
     updateDate: Date;
     password: string;
     rol: string;
+   
 }

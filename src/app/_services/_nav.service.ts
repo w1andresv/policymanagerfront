@@ -39,6 +39,14 @@ export class NavService {
                 }, time );
                 cargando = false;
                 break;
+            case 4:
+                title = title ? title : 'Acción realizada con exito!';
+                icon = 'success';
+                setTimeout( () => {
+                    this.closeAlert();
+                }, time );
+                cargando = false;
+                break;
             case 0:
                 title = titulo;
                 icon = 'info';
@@ -83,8 +91,12 @@ export class NavService {
             case 3:
                 title = mesage ? mesage : 'Ha ocurrido un error';
                 icon = 'error';
-                break;
+                break
             case 4:
+                title = mesage ? mesage : 'Acción realizada con exito!';
+                icon = 'success';
+                break;
+            case 0:
                 title = mesage;
                 icon = 'info';
                 break;
@@ -94,6 +106,7 @@ export class NavService {
         }
         const data = swal.mixin( {
             toast: true,
+            
             position: 'top',
             showConfirmButton: false,
             timer,

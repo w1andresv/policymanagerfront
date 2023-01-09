@@ -1,33 +1,36 @@
 <div class="layout-topbar">
-    <a class="layout-topbar-logo" routerLink="">
-        <img
-            alt="logo"
-            src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg">
-        <span>SAKAI</span>
-    </a>
+  <a class="layout-topbar-logo" routerLink="">
+    <img
+          alt="logo"
+          src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg">
+    <span>SAKAI</span>
+  </a>
 
-    <button #menubutton (click)="layoutService.onMenuToggle()" class="p-link layout-menu-button layout-topbar-button">
-        <i class="pi pi-bars"></i>
+  <button #menubutton (click)="layoutService.onMenuToggle()" class="p-link layout-menu-button layout-topbar-button">
+    <i class="pi pi-bars"></i>
+  </button>
+
+  <button #topbarmenubutton (click)="layoutService.showProfileSidebar()"
+          class="p-link layout-topbar-menu-button layout-topbar-button">
+    <i class="pi pi-ellipsis-v"></i>
+  </button>
+  <div class="p-link">
+    <span>{{now}}</span>
+  </div>
+  <div #topbarmenu [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}"
+       class="layout-topbar-menu">
+
+    <button class="p-link layout-topbar-button">
+      <i class="pi pi-calendar"></i>
+      <span>Calendar</span>
     </button>
-
-    <button #topbarmenubutton (click)="layoutService.showProfileSidebar()"
-            class="p-link layout-topbar-menu-button layout-topbar-button">
-        <i class="pi pi-ellipsis-v"></i>
+    <button (click)="signout()" class="p-link layout-topbar-button">
+      <i class="pi pi-sign-out"></i>
+      <span>Sign out</span>
     </button>
-
-    <div #topbarmenu [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}"
-         class="layout-topbar-menu">
-        <button class="p-link layout-topbar-button">
-            <i class="pi pi-calendar"></i>
-            <span>Calendar</span>
-        </button>
-        <button class="p-link layout-topbar-button" (click)="signout()">
-            <i class="pi pi-sign-out"></i>
-            <span>Sign out</span>
-        </button>
-<!--        <button [routerLink]="'/documentation'" class="p-link layout-topbar-button">-->
-<!--            <i class="pi pi-cog"></i>-->
-<!--            <span>Settings</span>-->
-<!--        </button>-->
-    </div>
+    <!--        <button [routerLink]="'/documentation'" class="p-link layout-topbar-button">-->
+    <!--            <i class="pi pi-cog"></i>-->
+    <!--            <span>Settings</span>-->
+    <!--        </button>-->
+  </div>
 </div>
