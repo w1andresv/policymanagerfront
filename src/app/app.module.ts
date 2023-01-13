@@ -3,10 +3,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';
-import { NotfoundComponent } from './demo/components/notfound/notfound.component';
-import { EventService } from './demo/service/event.service';
+import { EventService } from './layout/service/event.service';
+import { NotfoundComponent } from './layout/components/notfound/notfound.component';
 
-@NgModule({
+@NgModule( {
     declarations: [
         AppComponent, NotfoundComponent
     ],
